@@ -13,7 +13,6 @@ public class Airplane{
 
 public class GameController : Singleton<GameController>
 {
-
     public int TanksCount;
     public int BirdCount;
     public int SoldierCount;
@@ -70,12 +69,40 @@ public class GameController : Singleton<GameController>
     // show the main menu with selected airplane
     public void ShowMenu()
     {
+        PlaneIndex = PlayerPrefs.GetInt("Plane");
         CurrentPlane = PoolManager.instance.Spawn(planeList[PlaneIndex].GO.name, Vector3.zero, Quaternion.identity,true).transform;
         CameraFollow2D.instance.getTarget(CurrentPlane);
         CreateLevel();
-        UiController.instance.ShowMenu();        
+        UiController.instance.ShowMenu();
     }
 
+    public void GameOver()
+    {
+
+        PlayerPrefs.SetInt("CurrentScore", score);
+
+        int newCrashes = PlayerPrefs.GetInt("TotalCrashes");
+        newCrashes++;
+        PlayerPrefs.SetInt("TotalCrashes", newCrashes);
+
+        int newScore = PlayerPrefs.GetInt("Score");
+        newScore += score;
+        PlayerPrefs.SetInt("Score", newScore);
+
+        int newDistance = PlayerPrefs.GetInt("TotalDistance");
+        newDistance += score;
+        PlayerPrefs.SetInt("TotalDistance", newDistance);
+
+        if (score > BestScore)
+        {
+            BestScore = score;
+            PlayerPrefs.SetInt("BestDistance", BestScore);
+            //UiController.instance.UpdateBestScore(BestScore);
+        }
+
+        UIManager.Instance.ShowPopup(PopupTypes.Lose);
+
+    }
     // reset the game status.
     public void ResetGame()
     {
@@ -88,16 +115,8 @@ public class GameController : Singleton<GameController>
         TanksCount = 0;
         BirdCount = 0;
         SoldierCount = 0;
-        if (score > BestScore)
-        {
-            BestScore = score;
-            UiController.instance.UpdateBestScore(BestScore);
-            score = 0;
-        }
-        else
-        {
-            score = 0;
-        }
+        score = 0;
+
 
         ShowMenu();
 

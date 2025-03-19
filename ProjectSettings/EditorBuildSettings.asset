@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Gaps2D/Scenes/GameScene.unity
-    guid: 0005492b555864686bc7a57242013da6
   - enabled: 1
     path: Assets/Scenes/LoadianScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 906b261fec6fb28498b9e6c51c1739cf
+  - enabled: 1
+    path: Assets/VoodooPlay/Demo/Scenes/Demo.unity
+    guid: c5dd8517beedd2548902e005aafaa13b
   m_configObjects: {}

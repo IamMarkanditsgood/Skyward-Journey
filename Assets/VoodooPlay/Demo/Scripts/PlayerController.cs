@@ -49,6 +49,15 @@ public class PlayerController : MonoBehaviour {
     private void OnEnable()
     {
         Init();
+        GameEvent.OnFly += Fly;
+        GameEvent.OnShoot += Shooting;
+        GameEvent.OnDropBomb += DropBomb;
+    }
+    private void OnDestroy()
+    {
+        GameEvent.OnFly -= Fly;
+        GameEvent.OnShoot -= Shooting;
+        GameEvent.OnDropBomb -= DropBomb;
     }
 
 
@@ -90,38 +99,68 @@ public class PlayerController : MonoBehaviour {
 
             return;
         }
-
-        // fly input
-        if (Input.GetKey(KeyCode.Space) )
+        if (Input.touchCount > 0)
         {
+            Touch touch = Input.GetTouch(0); // Беремо перший дотик
+
+            if ((touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved))
+            {
+                if(!PlayerPrefs.HasKey("Achieve"))
+                {
+                    PlayerPrefs.SetInt("Achieve", 1);
+                }
+                Debug.Log("Fly");
+                // Поки палець торкається екрану, додаємо силу вгору
+                float angle = thisTrans.localRotation.eulerAngles.z;
+                if ((angle > 0f && angle < 70) || (angle > 270f && angle < 360))
+                {
+                    thisTrans.Rotate(0, 0, 150f * Dir * Time.deltaTime);
+                }
+            }
+
+        }
+        if (Input.touchCount > 0 || Input.GetMouseButton(0))
+        {
+            if (!PlayerPrefs.HasKey("Achieve"))
+            {
+                PlayerPrefs.SetInt("Achieve", 1);
+            }
+            Debug.Log("Fly");
+            // Поки палець торкається екрану, додаємо силу вгору
             float angle = thisTrans.localRotation.eulerAngles.z;
-             if((angle>0f && angle<70) || (angle>270f && angle<360)){
+            if ((angle > 0f && angle < 70) || (angle > 270f && angle < 360))
+            {
                 thisTrans.Rotate(0, 0, 150f * Dir * Time.deltaTime);
             }
-        }    
-
-        // drop bomob input
-        if(Input.GetKeyDown(KeyCode.D) ){
-            if(currentBombs>0){
-                DropBomb();
-                AudioController.instance.DropAFX();
-            }           
         }
-
         // shotting delay timer
         shootTime += + Time.deltaTime;
-
-        // shooting input
-        if(Input.GetKey(KeyCode.RightControl) ){  
-            if(shootTime>airplane.shootRate){
-                shootTime = 0;
-                ShootGuns();  
-            }      
-                
-        }       
+     
         if((thisTrans.right.x <-0.1 || thisTrans.right.x >0.1) ){           
                 thisTrans.Rotate (0,0 ,-60f * Dir * Time.deltaTime);         	    	
 		}        
+    }
+
+    private void Fly()
+    {
+
+        
+    }
+    private  void DorpBomb()
+    {
+        if (currentBombs > 0)
+        {
+            DropBomb();
+            AudioController.instance.DropAFX();
+        }
+    }
+    private void Shooting()
+    {
+        if (shootTime > airplane.shootRate)
+        {
+            shootTime = 0;
+            ShootGuns();
+        }
     }
 
     // collision check
@@ -179,9 +218,10 @@ public class PlayerController : MonoBehaviour {
     private void Gameover(){
         CancelInvoke();
         Speed = 0;
-        UiController.instance.ShowGameOver();
+        //UiController.instance.ShowGameOver();
+        GameController.instance.GameOver();
     }
-       
+
 
     private void DropBomb(){
         AudioController.instance.DropAFX();

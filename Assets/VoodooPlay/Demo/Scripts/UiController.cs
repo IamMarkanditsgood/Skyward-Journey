@@ -63,28 +63,29 @@ public class UiController : Singleton<UiController>
         BestScoreText.text= _score.ToString();
     }
 
-    private void Update()
+    private void Start()
     {
-        if (gameState==state.gameOver && Input.GetKeyDown(KeyCode.Space))
+        if (gameState == state.mainMenu && !GameController.instance.GameRun)
+        {
+            gameState = state.gameRun;
+            ShowGameControls();
+            GameController.instance.GameRun = true;
+        }
+        /*if (gameState == state.gameOver && Input.GetKeyDown(KeyCode.Space))
         {
             gameState = state.mainMenu;
-            GameController.instance.ResetGame();        
-        }
+            GameController.instance.ResetGame();
+        }*/
 
-        if (gameState == state.mainMenu && Input.GetKeyDown(KeyCode.LeftArrow))
+        /*if (gameState == state.mainMenu && Input.GetKeyDown(KeyCode.LeftArrow))
         {
             GameController.instance.MenuChangePlane(-1);
         }
         if (gameState == state.mainMenu && Input.GetKeyDown(KeyCode.RightArrow))
         {
             GameController.instance.MenuChangePlane(1);
-        }
-        if (gameState == state.mainMenu && Input.GetKeyDown(KeyCode.Return) && !GameController.instance.GameRun)
-        {
-            gameState = state.gameRun;
-            ShowGameControls();
-            GameController.instance.GameRun = true;
-        }
+        }*/
+
 
     }
 

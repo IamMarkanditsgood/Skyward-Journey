@@ -74,8 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4167289810406384794, guid: 4abc02f782c2c4b489cd1af2a94538d0,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f79e098a3d684a4dad3b667d102d3c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +121,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1024, y: 45}
+    oldSize: {x: 1153, y: 54.046875}
     newSize: {x: 1024, y: 45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -204,7 +203,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -30
-  m_Sprite: {fileID: 21300004, guid: 4a9288ab4837e714aaa7b909d009983e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d3d73114d7ed99468013042f78f3811, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -383,7 +382,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 4a9288ab4837e714aaa7b909d009983e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 452f647c8fecadf429686821e009c6f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -467,7 +466,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -20
-  m_Sprite: {fileID: 21300002, guid: 4a9288ab4837e714aaa7b909d009983e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44e27b7106a0c4a4cb1a0694aa81cce8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -504,8 +503,8 @@ Transform:
   m_GameObject: {fileID: 8041423512236112572}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1113, z: 900}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.4051, y: 1113, z: 900}
+  m_LocalScale: {x: 0.91, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4242964719414955386}
@@ -551,8 +550,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -30
-  m_Sprite: {fileID: -4391335438328946266, guid: 4a9288ab4837e714aaa7b909d009983e,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 927e96fc19c04f543a47fdd8492be122, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
