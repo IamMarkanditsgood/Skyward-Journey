@@ -5183,8 +5183,7 @@ MonoBehaviour:
     maxHealth: 15
     shootRate: 0.05
     speed: 400
-  projectile: {fileID: 2453236508934831271, guid: 5d7f00bd948ce53408f2b5efa6479808,
-    type: 3}
+  projectile: {fileID: 2453236508934831271, guid: 5d7f00bd948ce53408f2b5efa6479808, type: 3}
   BombSpawn: {fileID: 447232}
   GunsSpawn: {fileID: 437958}
   text: {fileID: 0}

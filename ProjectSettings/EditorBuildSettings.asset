@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LoadianScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes 1/LoadianScene.unity
+    guid: 1c5d2d038fb8cd8458c17acde7bbfd5f
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes 1/MainMenu.unity
     guid: 906b261fec6fb28498b9e6c51c1739cf
   - enabled: 1
     path: Assets/VoodooPlay/Demo/Scenes/Demo.unity
